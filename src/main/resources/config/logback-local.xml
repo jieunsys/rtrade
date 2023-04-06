@@ -1,0 +1,46 @@
+<configuration>
+	<property name="LOG_DIR" value="C:/LOG"/>
+	<property name="LOG_PATH" value="${LOG_DIR}/logg-test.log"/>
+	
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    	<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+	        <layout class="com.ppori.coreframe.config.MaskingPatternLayout">
+	        	<maskPattern>(\d+\.\d+\.\d+\.\d+)</maskPattern>
+	            <Pattern>
+	                %-5level %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread][%C:%L] %method - %msg%n
+	            </Pattern>
+	        </layout>
+    	</encoder>
+    </appender>
+
+    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    	<file>${LOG_PATH}</file>
+    	
+    	<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+    		<charset>UTF-8</charset>
+	        <layout class="com.ppori.coreframe.config.MaskingPatternLayout">
+	        	<maskPattern>(\d+\.\d+\.\d+\.\d+)</maskPattern>
+	            <Pattern>
+	                %-5level %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread][%C:%L] %method - %msg%n
+	            </Pattern>
+	        </layout>
+    	</encoder>
+    	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+    		<fileNamePattern>${LOG_DIR}/logging-test-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+    		<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+    			<maxFileSize>50MB</maxFileSize>
+    		</timeBasedFileNamingAndTriggeringPolicy>
+    		
+    		<!-- 로그파일 최대 보관주기 60일 -->
+    		<maxHistory>60</maxHistory>
+    	</rollingPolicy>
+    </appender>
+
+    <logger name="com.ppori" level="info" />
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="ROLLING_FILE"/>
+    </root>
+
+</configuration>
