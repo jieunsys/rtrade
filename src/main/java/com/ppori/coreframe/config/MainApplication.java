@@ -37,14 +37,6 @@ public class MainApplication extends SpringBootServletInitializer  {
 		 * application-local.xml: logging.config=classpath:config/logback-${spring.profiles.active}.xml
 		 * <layout class="com.ppori.coreframe.config.MaskingPatternLayout">
 		 */
-		log.info("민감정보 logback 마스킹 테스트");
-		log.info("주민번호  801208-1234567  테스트");
-		log.info("전화번호 010-0000-0000 테스트");
-		log.info("이메일 test12345@naver.com 테스트");
-		log.info("여권번호 M12345678 테스트");
-		log.info("두번째 여권번호 TJ 0012345 입니다.");
-		log.info("운전면허번호 서울12-123456-78 테스트");
-		log.info("카드번호  4000-1234-5678-0000 테스트");
 		
 	}
 

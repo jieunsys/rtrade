@@ -3,6 +3,7 @@ package com.ppori.config;
 import org.apache.catalina.Context;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.tomcat.util.descriptor.web.ContextResource;
+import org.jasypt.encryption.StringEncryptor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.embedded.tomcat.TomcatWebServer;
@@ -60,10 +61,22 @@ public class JndiResource {
 		resource.setProperty("driverClassName", driverClassName);
 		resource.setProperty("url", url);
 		resource.setProperty("username", username);
-		resource.setProperty("password", password);
+		resource.setProperty("password", new JasyptConfig().stringEncryptor().decrypt(password));
 		
 		log.info("########## url = " + url);
 		return resource;
 	}
 	
+	public static void main2(String[] args) {
+		JasyptConfig jasyptConfig = new JasyptConfig();
+		StringEncryptor stringEncryptor = jasyptConfig.stringEncryptor();
+		
+		String src = "PLAIN_TEXT_1234_!@#$";
+		String enc = stringEncryptor.encrypt(src);
+		String dec = stringEncryptor.decrypt(enc);
+		
+		log.info("######## src=" + src);
+		log.info("######## enc=" + enc);
+		log.info("######## dec=" + dec);
+	}
 }

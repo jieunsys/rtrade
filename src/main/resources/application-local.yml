@@ -21,7 +21,7 @@ spring:
       suffix: .jsp
       
   thymeleaf:
-    prefix: classpath:/templates/ 2
+    prefix: classpath:/templates/
     suffix: .html
     view-names: thyme/*
   
@@ -77,5 +77,5 @@ rtrade:
         name: oracle.jdbc.OracleDriver
     url: jdbc:oracle:thin:@192.168.0.41:1521:MOCA19
     username: moca1
-    password: moca1
+    password: m37YgGMiWFz3Uoq8qH7/Tw==
     
