@@ -1,0 +1,45 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/type08.css">
+</head>
+<body>
+APT LIST
+<table class="type08">
+    <thead>
+    <tr>
+        <th scope="cols">시군구</th>
+        <th scope="cols">번지</th>
+        <th scope="cols">단지명</th>
+        <th scope="cols">면적</th>
+        <th scope="cols">계약년월</th>
+        <th scope="cols">계약일</th>
+        <th scope="cols">금액</th>
+        <th scope="cols">층수</th>
+        <th scope="cols">준공</th>
+        <th scope="cols">도로명</th>
+        <th scope="cols">거래방식</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+		<c:forEach var="Apt" items="${jobList}">
+		<tr>
+		    <th nowrap>${Apt.dpySeq}</td>
+		    <th nowrap>${Apt.dpyOrder}</td>
+		    <th nowrap>${Apt.serverNo}</td>
+		    <td nowrap>${Apt.hostName}</td>
+		    <td nowrap>${Apt.projName}</td>
+		    <td nowrap>${Apt.dpyType}</td>
+		    <td nowrap>${Apt.reqRestart}</td>
+		    <th nowrap>${Apt.jobStat}</td>
+		    <td nowrap>${Apt.fileExt}</td>
+		    <td nowrap>${Apt.dpyAuth}</td>
+		    <td nowrap>${Apt.errCode}</td>
+		</tr>
+		</c:forEach>
+    </tbody>
+</table>
+
+
+</body>
+</html>

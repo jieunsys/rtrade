@@ -22,7 +22,7 @@ public class ThymeleafController {
 	public String responseViewV2(Model model) {
 		model.addAttribute("data1", "This is hello!!");
 
-		return "thyme/hello1"; // resources/templates/thyme/hello1.html 매핑
+		return "thyme/aptlist"; // resources/templates/thyme/hello1.html 매핑
 	}
 	
 	@Operation(summary = "view-jsp 테스트")
