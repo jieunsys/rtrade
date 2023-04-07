@@ -14,9 +14,9 @@ public class SwaggerConfig {
 	@Bean
 	public OpenAPI openAPI(@Value("${springdoc.version}") String springdocVersion) {
 		Info info = new Info()
-				.title("CODEFRAME 프레임워크 SwaggerDoc")
+				.title("Apt Trade")
 				.version(springdocVersion)
-				.description("codeframe");
+				.description("Apt Trade");
 		
 		return new OpenAPI()
 				.components(new Components())

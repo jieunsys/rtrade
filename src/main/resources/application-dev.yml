@@ -1,0 +1,81 @@
+server:
+  port: 8081
+  
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: false
+      
+  config:
+    import:
+      - classpath:/demo1.yml
+       
+  mvc:
+    async:
+      request-timeout: 2000ms
+    log-request-details: true
+    view:
+      prefix: /WEB-INF/mav/
+      suffix: .jsp
+      
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    view-names: thyme/*
+  
+  datasource:
+    jndi-name: jndi_RTRADE
+
+  servlet:
+    multipart:
+      max-file-size: 1MB
+      max-request-size: 10MB
+      file-size-threshold: 1MB
+      location: /tmp
+file:
+  dir: /tmp/      
+
+mybatis:
+  mapper-locations: mybatis-mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+  
+springdoc:
+  swagger-ui:
+    operations-sorter: alpha
+    tags-sorter: alpha
+    path: swagger-ui.html
+  version: v1
+  path-to-match:
+  - /**
+  
+logging:
+  config: classpath:config/logback-${spring.profiles.active}.xml
+  
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      path-mapping:
+        health: health
+      exposure:
+        include: health,info,beans,conditions,loggers,httptrace,metrics,contexts,env
+        exclude: threaddump, heapdump
+  endpoint:
+    health:
+      show-details: always
+  health:
+    mail:
+      enabled: false
+
+rtrade:
+  jndi:
+    driver:
+      class:
+        name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@192.168.0.41:1521:MOCA19
+    username: moca1
+    password: m37YgGMiWFz3Uoq8qH7/Tw==
+    
