@@ -22,21 +22,20 @@ APT LIST
     </thead>
     
     <tbody>
-		<c:forEach var="Apt" items="${jobList}">
-		<tr>
-		    <th nowrap>${Apt.dpySeq}</td>
-		    <th nowrap>${Apt.dpyOrder}</td>
-		    <th nowrap>${Apt.serverNo}</td>
-		    <td nowrap>${Apt.hostName}</td>
-		    <td nowrap>${Apt.projName}</td>
-		    <td nowrap>${Apt.dpyType}</td>
-		    <td nowrap>${Apt.reqRestart}</td>
-		    <th nowrap>${Apt.jobStat}</td>
-		    <td nowrap>${Apt.fileExt}</td>
-		    <td nowrap>${Apt.dpyAuth}</td>
-		    <td nowrap>${Apt.errCode}</td>
+		<tr th:each="apt : ${aptList}">
+		    <td th:text="${apt.streetAdd}">시군구</td>
+		    <td th:text="${apt.streetNo}">번지</td>
+		    <td th:text="${apt.aptComplex}">단지명</td>
+		    <td th:text="${apt.expSize}">면적</td>
+		    <td th:text="${apt.contractYymm}">계약년월</td>
+		    <td th:text="${apt.contractDd}">계약일</td>
+		    <td th:text="${apt.price}">금액</td>
+		    <td th:text="${apt.floorNo}">층수</td>
+		    <td th:text="${apt.builtYear}">준공</td>
+		    <td th:text="${apt.streetName}">도로명</td>
+		    <td th:text="${apt.tradeType}">거래방식</td>
 		</tr>
-		</c:forEach>
+
     </tbody>
 </table>
 

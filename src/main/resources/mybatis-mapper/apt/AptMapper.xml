@@ -6,14 +6,29 @@
 <mapper namespace="com.ppori.rtrade.search.repository.AptRepository">
 
     <select id="getApt" parameterType="com.ppori.rtrade.domain.Apt" resultType="com.ppori.rtrade.domain.Apt">
+    <![CDATA[
         select *
           from rtrade
          where rownum = 1
+    ]]>
     </select>
 
     <select id="getAptList" parameterType="Map" resultType="com.ppori.rtrade.domain.Apt">
-        select *
-          from rtrade
+    <![CDATA[
+		select street_add
+		      ,street_no
+		      ,apt_complex
+		      ,round(exp_size,0) as exp_size
+		      ,contract_yymm
+		      ,contract_dd
+		      ,price
+		      ,floor_no
+		      ,built_year
+		      ,street_name
+		      ,trade_type
+		  from rtrade
+         where rownum <= 20
+    ]]>
     </select>
 
 </mapper>

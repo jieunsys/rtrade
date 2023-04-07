@@ -1,8 +1,12 @@
 package com.ppori.rtrade.search.controller;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,7 +19,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 
 @Tag(name="AptController DEMO 컨트롤러")
-@RestController
+@Controller
 @Slf4j
 public class AptController {
 
@@ -33,13 +37,13 @@ public class AptController {
 	}
 	
 	@Operation(summary = "getAptList 메소드")
-	@RequestMapping(path="/selectAptList", method=RequestMethod.GET)
-	public String selectList() {
-		ArrayList<Apt> apts = aptService.getAptList(new Apt());
-		for(Apt apt:apts) {
-			log.info("apt = " + apt.getAptComplex());
-		}
-		return "okay";
-	}
+	@RequestMapping(value="/selectAptList", method=RequestMethod.GET)
+	public String selectAptList(Model model) {
+		List<Apt> aptList = aptService.getAptList(new Apt());
+		
+		model.addAttribute("aptList", aptList);
+
+		return "thyme/aptlist";
+	}	
 
 }
