@@ -1,0 +1,95 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="css/type08.css">
+</head>
+<body>
+실거래가 조회
+
+
+<form action="/apt" method="post">
+	<label for="is_rent">구분</label>
+	<select name="is_rent" id="is_rent">
+		<option value="매매" selected>매매</option>
+		<option value="임대">임대</option>
+	</select>
+	&nbsp&nbsp&nbsp&nbsp
+	<label for="sido_name">지역</label>
+	<input type="checkbox" name="sido_name" value="서울" checked>서울
+	<input type="checkbox" name="sido_name" value="경기" checked>경기
+	<br>
+
+	<label for="cars">면적</label>
+	<input type="checkbox" name="exp_size" value="66미만" checked>~66㎡
+	<input type="checkbox" name="sido_name" value="66~99" checked>66㎡~99㎡
+	<input type="checkbox" name="sido_name" value="99~132" checked>99㎡~132㎡
+	<input type="checkbox" name="sido_name" value="132~165" checked>132㎡~165㎡
+	<input type="checkbox" name="sido_name" value="165~" checked>165㎡~
+	<br>
+
+	<label for="contract_yymm">계약일</label>
+	<input type="checkbox" name="contract_yymm" value="2021년" checked>2021년
+	<input type="checkbox" name="contract_yymm" value="2022년" checked>2022년
+	<input type="checkbox" name="contract_yymm" value="2023년" checked>2023년
+	<br>
+
+	<label for="price">금액</label>
+	<input type="checkbox" name="price" value="~3억" checked>~3억
+	<input type="checkbox" name="price" value="3~6억" checked>3~6억
+	<input type="checkbox" name="price" value="6~10억" checked>6~10억
+	<input type="checkbox" name="price" value="10억~" checked>10억~
+	<br>
+
+	<label for="trade_type">중개</label>
+	<input type="checkbox" name="trade_type" value="직거래" checked>직거래
+	<input type="checkbox" name="trade_type" value="중개거래" checked>중개거래
+	&nbsp&nbsp&nbsp&nbsp
+	
+	<label for="sort1">정렬</label>
+	<select name="sort1" id="sort1">
+		<option value="낮은가격순" selected>낮은가격순</option>
+		<option value="높은가격순">높은가격순</option>
+		<option value="과거날짜순">과거날짜순</option>
+		<option value="최근날짜순">최근날짜순</option>
+	</select>
+	
+	<br>
+	<input type="submit" value="조    회">
+</form>
+
+<table class="type08">
+    <thead>
+    <tr>
+        <th scope="cols">시군구</th>
+        <th scope="cols">번지</th>
+        <th scope="cols">단지명</th>
+        <th scope="cols">면적</th>
+        <th scope="cols">계약년월</th>
+        <th scope="cols">계약일</th>
+        <th scope="cols">금액</th>
+        <th scope="cols">층수</th>
+        <th scope="cols">준공</th>
+        <th scope="cols">도로명</th>
+        <th scope="cols">거래방식</th>
+    </tr>
+    </thead>
+    
+    <tbody>
+		<tr th:each="apt : ${aptList}">
+		    <td th:text="${apt.streetAdd}">시군구</td>
+		    <td th:text="${apt.streetNo}">번지</td>
+		    <td th:text="${apt.aptComplex}">단지명</td>
+		    <td th:text="${apt.expSize}">면적</td>
+		    <td th:text="${apt.contractYymm}">계약년월</td>
+		    <td th:text="${apt.contractDd}">계약일</td>
+		    <td th:text="${apt.price}">금액</td>
+		    <td th:text="${apt.floorNo}">층수</td>
+		    <td th:text="${apt.builtYear}">준공</td>
+		    <td th:text="${apt.streetName}">도로명</td>
+		    <td th:text="${apt.tradeType}">거래방식</td>
+		</tr>
+
+    </tbody>
+</table>
+
+</body>
+</html>
