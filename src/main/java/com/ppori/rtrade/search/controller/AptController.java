@@ -12,11 +12,9 @@ import com.ppori.rtrade.domain.Apt;
 import com.ppori.rtrade.search.service.AptService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.extern.slf4j.Slf4j;
 
 @Tag(name="AptController DEMO 컨트롤러")
 @Controller
-@Slf4j
 public class AptController {
 
 	@Autowired

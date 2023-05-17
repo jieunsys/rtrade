@@ -1,3 +1,4 @@
+<!DOCTYPE xml>
 <configuration>
 	<property name="LOG_DIR" value="C:/LOG"/>
 	<property name="LOG_PATH" value="${LOG_DIR}/logg-test.log"/>

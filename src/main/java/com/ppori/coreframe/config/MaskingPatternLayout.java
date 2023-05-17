@@ -14,7 +14,8 @@ public class MaskingPatternLayout extends PatternLayout {
 	}
 	
 	private String maskMessage(String message) {
-		if(1==1) return message;
+		int a=1;
+		if(1==a) return message;
 		String dst = null;
 		
 		dst = message.replaceAll("([0-9]{6})-([1-4]{1})([0-9]{6})", "$1-$2******"); // 주민번호: 숫자6자리-1~4한자리숫자6자리 정보중 마지막6자리를 *으로 변경
